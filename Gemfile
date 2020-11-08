@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootstrap-will_paginate', '1.0.0'
+gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'sqlite3'
