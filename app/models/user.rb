@@ -1,6 +1,7 @@
 # user
 class User < ApplicationRecord
   # before_save { self.email = email.downcase }
+  has_many :microposts, dependent: :destroy
   before_save { email.downcase! }
   attr_accessor :remember_token
 
@@ -43,4 +44,11 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  # 实现动态流原型
+  # 完整的实现参见第 14 章
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
+  
 end
